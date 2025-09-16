@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexible & Responsive Layout</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --active-color: #db5c12;
+            --secondary-color: #909394;
+            --background-light: #f8f9fa;
+            --text-dark: #0c0e13;
+            --border-color: #dee2e6;
+            --card-bg: #ffffff;
+            --card-dark-bg: #0e0231;
+        }
+
+        h3 {
+            color: var(--background-light);
+        }
+
+        p {
+            color: var(--secondary-color);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /*background-color: var(--card-bg);*/
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+        }
+
+        .logo a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--active-color);
+        }
+
+        /* Main Content Section */
+        .content-container {
+            display: flex;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        .hero-section {
+            flex-basis: 60%;
+            background-image: url("assets/images/image-web-3-desktop.jpg");
+            background-repeat: no-repeat;
+            padding: 2rem;
+            height: 250px;
+            border-radius: 0px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            line-height: 1.6;
+        }
+
+        .hero-card {
+            flex-basis: 60%;
+            /*background-color: var(--card-bg);*/
+            
+            height: 250px;
+            border-radius: 0px;
+            box-shadow: 0 px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+        }
+
+        .large-text {
+            flex: 0 0 250px; /* The image container has a fixed width of 250px */
+        }
+
+        .large-text h1 {
+            font-size: 3rem;
+            width: 100%; /* Make the image fill its container */
+            height: 100%; /* Make the image fill its container */
+        }
+
+        .small-text {
+            flex: 1; /* The text content takes up the remaining space */
+            padding: 30px; /* Add some padding around the text */
+        }
+
+        .sidebar {
+            flex-basis: 45%;
+            background-color: var(--card-dark-bg);
+            padding: 3em;
+            border-radius: 0px;
+            height: 540px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Cards Section */
+        .cards-container {
+            display: flex;
+            padding: 1.2rem;
+            gap: 2rem;
+            flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+        }
+
+        /* Main card container */
+        .card {
+            display: flex; /* Key for side-by-side layout */
+            background-color: var(--background-light);
+            border-radius: 0px;
+            box-shadow: 0 1px 1px rgba(0,0,0,0);
+            width: 315px; /* Fixed width for consistency */
+            margin: 20px;
+            overflow: hidden; /* Ensures the image corners are rounded with the card */
+            transition: transform 0.2s ease-in-out;
+            padding: 6px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* Adds a subtle lift effect on hover */
+        }
+
+        /* Image container */
+        .card-image {
+            flex-shrink: 0; /* Prevents the image from shrinking */
+            width: 100px;
+            height: 180px;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures image covers the area without distortion */
+        }
+
+        /* Text content container */
+        .card-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-content h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: #1c1e21; /* Darker text for title */
+        }
+
+        .card-content h2 a:hover{
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: #db5c12; /* text for title */
+            text-decoration: none;
+        }
+
+        .card-content p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #606770; /* Softer color for body text */
+            line-height: 1.6;
+        }   
+
+        #myBtn {
+            background-color: #db5c12;
+            color: #0c0e13;
+            border: none;
+            padding: 20px 30px;
+            border-radius: 0px;
+            cursor: pointer;
+            font-family: sans-serif;
+        }
+
+        #myBtn:hover {
+            background-color: #0e0231;
+            color: #ffffff;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 600px) {
+            .card {
+                flex-direction: column; /* Stacks the image on top of the text */
+                max-width: 350px;
+            }
+
+            .card-image {
+                width: 100%;
+                height: 200px; /* Adjust height for a better mobile view */
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .content-container {
+                flex-direction: column;
+            }
+
+            .hero-section,
+            .sidebar {
+                flex-basis: 100%;
+                margin-bottom: 1.5rem;
+            }
+
+            .card {
+                flex-basis: calc(50% - 1.5rem); /* Two cards per row on tablets */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 1rem;
+            }
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+            .cards-container {
+                flex-direction: column;
+            }
+            .card {
+                flex-basis: 100%; /* One card per row on mobile */
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+</head> 
+<body>
+    <div class="container">
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="#index.html">
+                <img src="assets/images/logo.svg" alt="Logo" style="height: 38px; vertical-align: middle;">
+            </a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">New</a></li>
+            <li><a href="#">Popular</a></li>
+            <li><a href="#">Trending</a></li>
+            <li><a href="#">Categories</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Section -->
+    <main class="content-container">
+        <hero-banner>
+            <section class="hero-section">
+            <!-- Image is now set as background in CSS -->
+            </section>
+
+
+            <section class="hero-card">
+                
+                    <div class="large-text">
+                        <h1>The Bright Future of Web 3.0?</h1>
+                    </div>
+                    <div class="small-text">
+                        <p>We dive into the next evolution on the web
+                            that claims to put the power of the platforms 
+                            back into the hands of the people. But is it 
+                            really fulfilling it's promise?</p>
+
+                        <p><span id="spaces">&nbsp;</span><span id="moreText" 
+                            style="display: none;">Web 3.0, also known as the third 
+                            generation of the internet, is a concept that envisions
+                             a decentralized and user-centric web experience. 
+                             It aims to address some of the limitations and challenges
+                              of the current web (Web 2.0) by leveraging technologies
+                               such as blockchain, artificial intelligence, and 
+                               decentralized applications (dApps).</span></p>
+                        <button onclick="toggleText()" id="myBtn">READ MORE</button>
+                    </div>
+            </section>
+        </hero-banner>
+        <aside class="sidebar">
+            <h1 style="color: rgb(216, 160, 20); font-size: 2em;">New</h1>
+            <h3>Hydrogen VS Electric Cars</h3>
+            <p>Will hydrogen -fuelled cars ever catch upto EVs?</p>
+            <br>
+            <hr>
+            <br>
+            <h3>The Downsides of AI Artistry</h3>
+            <p>What are the possible adverse effects of on-demand AI image generation?</p>
+            <br>
+            <hr>
+            <br>
+            <h3>Is VC funding drying up?</h3>
+            <p>Private funding by VC firms is down 50% YOY. We take a look at what 
+                that means.</p>
+            <br>
+            <br>
+        </aside>
+    </main>
+
+    <!-- Cards Section -->
+    <section class="cards-container">
+        <div class="card">
+        <!-- Image on the left -->
+        <div class="card-image">
+            <img src="assets/images/image-retro-pcs.jpg" alt="A modern technology setup">
+        </div>
+        
+        <!-- Text on the right -->
+        <div class="card-content">
+            <h2 style="color: #db5c12; font-size: 2em;">01</h2>
+            <h2>Retriving Retro PCs</h2>
+            <p>What happens when old PCs are given modern upgrades?.</p>
+        </div>
+    </div>
+
+
+
+        <div class="card">
+        <!-- Image on the left -->
+        <div class="card-image">
+            <img src="assets/images/image-top-laptops.jpg" alt="A modern technology setup">
+        </div>
+        
+        <!-- Text on the right -->
+        <div class="card-content">
+            <h2 style="color: #db5c12; font-size: 2em;">02</h2>
+            <h2><a href="#">Top Laptops of 2022</a></h2>
+            <p>Our best picks for various needs and budgets.</p>
+        </div>
+    </div>
+
+
+
+        <div class="card">
+        <!-- Image on the left -->
+        <div class="card-image">
+            <img src="assets/images/image-gaming-growth.jpg" alt="A modern technology setup">
+        </div>
+        
+        <!-- Text on the right -->
+        <div class="card-content">
+            <h2 style="color: #db5c12; font-size: 2em;">03</h2>
+            <h2>Growth of Gaming</h2>
+            <p>How the pandemics has sparked fresh opportunities.</p>
+        </div>
+    </div>
+    </section>
+    </div>
+
+
+<script>
+    function toggleText() {
+  var spaces = document.getElementById("spaces");
+  var moreText = document.getElementById("moreText");
+  var btnText = document.getElementById("myBtn");
+
+  if (spaces.style.display === "none") {
+    // If text is expanded, hide it
+    spaces.style.display = "inline";
+    btnText.innerHTML = "Read more";
+    moreText.style.display = "none";
+  } else {
+    // If text is hidden, show it
+    spaces.style.display = "none";
+    btnText.innerHTML = "Read less";
+    moreText.style.display = "inline";
+  }
+}
+</script>
+</body>
+</html>

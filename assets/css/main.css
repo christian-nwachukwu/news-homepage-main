@@ -1,0 +1,267 @@
+:root {
+            --primary-color: #007bff;
+            --active-color: #db5c12;
+            --secondary-color: #909394;
+            --background-light: #f8f9fa;
+            --text-dark: #0c0e13;
+            --border-color: #dee2e6;
+            --card-bg: #ffffff;
+            --card-dark-bg: #0e0231;
+        }
+
+        h3 {
+            color: var(--background-light);
+        }
+
+        p {
+            color: var(--secondary-color);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+        }
+
+        .container {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /*background-color: var(--card-bg);*/
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+        }
+
+        .logo a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--active-color);
+        }
+
+        /* Main Content Section */
+        .content-container {
+            display: flex;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        .hero-section img {
+            flex-basis: 60%;
+            background-image: url("assets/images/image-web-3-mobile.jpg");
+            background-repeat: no-repeat;
+            padding: 2rem;
+            height: 250px;
+            border-radius: 0px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section p {
+            line-height: 1.6;
+        }
+
+        .hero-card {
+            flex-basis: 60%;
+            /*background-color: var(--card-bg);*/
+            
+            height: 250px;
+            border-radius: 0px;
+            box-shadow: 0 px 8px rgba(0, 0, 0, 0.05);
+            display: flex;
+        }
+
+        .large-text {
+            flex: 0 0 250px; /* The image container has a fixed width of 250px */
+        }
+
+        .large-text h1 {
+            font-size: 3rem;
+            width: 100%; /* Make the image fill its container */
+            height: 100%; /* Make the image fill its container */
+        }
+
+        .small-text {
+            flex: 1; /* The text content takes up the remaining space */
+            padding: 30px; /* Add some padding around the text */
+        }
+
+        .sidebar {
+            flex-basis: 45%;
+            background-color: var(--card-dark-bg);
+            padding: 3em;
+            border-radius: 0px;
+            height: 540px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Cards Section */
+        .cards-container {
+            display: flex;
+            padding: 1.2rem;
+            gap: 2rem;
+            flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+        }
+
+        /* Main card container */
+        .card {
+            display: flex; /* Key for side-by-side layout */
+            background-color: var(--background-light);
+            border-radius: 0px;
+            box-shadow: 0 1px 1px rgba(0,0,0,0);
+            width: 315px; /* Fixed width for consistency */
+            margin: 20px;
+            overflow: hidden; /* Ensures the image corners are rounded with the card */
+            transition: transform 0.2s ease-in-out;
+            padding: 6px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* Adds a subtle lift effect on hover */
+        }
+
+        /* Image container */
+        .card-image {
+            flex-shrink: 0; /* Prevents the image from shrinking */
+            width: 100px;
+            height: 180px;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures image covers the area without distortion */
+        }
+
+        /* Text content container */
+        .card-content {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-content h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1em;
+            color: #1c1e21; /* Darker text for title */
+        }
+
+        .card-content h2 a:hover{
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: #db5c12; /* text for title */
+            text-decoration: none;
+        }
+
+        .card-content p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #606770; /* Softer color for body text */
+            line-height: 1.6;
+        }   
+
+        #myBtn {
+            background-color: #db5c12;
+            color: #0c0e13;
+            border: none;
+            padding: 20px 30px;
+            border-radius: 0px;
+            cursor: pointer;
+            font-family: sans-serif;
+        }
+
+        #myBtn:hover {
+            background-color: #0e0231;
+            color: #ffffff;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 600px) {
+            .card {
+                flex-direction: column; /* Stacks the image on top of the text */
+                max-width: 350px;
+            }
+
+            .card-image {
+                width: 100%;
+                height: 200px; /* Adjust height for a better mobile view */
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .content-container {
+                flex-direction: column;
+            }
+
+            .hero-section,
+            .sidebar {
+                flex-basis: 100%;
+                margin-bottom: 1.5rem;
+            }
+
+            .card {
+                flex-basis: calc(50% - 1.5rem); /* Two cards per row on tablets */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 1rem;
+            }
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+            .cards-container {
+                flex-direction: column;
+            }
+            .card {
+                flex-basis: 100%; /* One card per row on mobile */
+                margin-bottom: 1.5rem;
+            }
+        }
